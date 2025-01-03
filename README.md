@@ -51,7 +51,7 @@ To set up the environment and install the necessary dependencies, follow these s
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/lsx314/HGMAF.git
    cd your-repo-name/sdxl-turbo
    ```
 
@@ -76,7 +76,7 @@ This script generates emotion-based prompts that are used to guide the model in 
 
 **Usage**:
 ```bash
-python emotion_prompt.py --input_text "Your input text here" --output_file "emotion_prompts.json"
+python emotion_prompt.py 
 ```
 
 ### 2. Entity Interpretation Prompt Generation (`entity_interpretation_prompt.py`)
@@ -84,15 +84,14 @@ This script generates prompts that help the model interpret entities in the cont
 
 **Usage**:
 ```bash
-python entity_interpretation_prompt.py --input_text "Your input text here" --output_file "entity_interpretation_prompts.json"
-```
+python entity_interpretation_prompt.py 
 
 ### 3. Entity Prompt Generation (`entity_prompt.py`)
 This script generates prompts related to entities, which are used to extract and align entities from text and images.
 
 **Usage**:
 ```bash
-python entity_prompt.py --input_text "Your input text here" --output_file "entity_prompts.json"
+python entity_prompt.py 
 ```
 
 ### 4. Generated Entity Image (`generated_entity_image.py`)
@@ -100,7 +99,7 @@ This script generates images associated with the extracted entities, which are t
 
 **Usage**:
 ```bash
-python generated_entity_image.py --entity "Entity Name" --output_image "entity_image.png"
+python generated_entity_image.py
 ```
 
 ### 5. Generated Sentences and Images (`generated_sentences_image.py`)
@@ -108,7 +107,7 @@ This script generates sentences and corresponding images, which are used for ali
 
 **Usage**:
 ```bash
-python generated_sentences_image.py --input_text "Your input text here" --output_image "sentence_image.png"
+python generated_sentences_image.py
 ```
 
 ---
