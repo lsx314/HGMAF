@@ -34,12 +34,13 @@ The repository is organized as follows:
 ```
 sdxl-turbo/
 ├── README.md                   # This file, providing an overview of the repository
+├── LICENSE                     # MIT License file for the project
 ├── emotion_prompt.py           # Script for generating emotion-based prompts
 ├── entity_interpretation_prompt.py  # Script for generating entity interpretation prompts
 ├── entity_prompt.py            # Script for generating entity-related prompts
 ├── generated_entity_image.py   # Script for generating images associated with extracted entities
 ├── generated_sentences_image.py # Script for generating sentences and corresponding images
-└── requirements.txt            # List of Python dependencies
+├── requirements.txt            # List of Python dependencies
 └── ....           # More thing
 ```
 
