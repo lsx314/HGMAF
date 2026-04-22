@@ -126,3 +126,9 @@ The code is written in Python and requires the following dependencies, which can
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgement
+
+The implementation of the second stage is based on the open-source sequence understanding framework [AdaSeq](https://github.com/modelscope/AdaSeq). We sincerely thank the AdaSeq team for their public work on data processing, training pipelines, and model components, which provided an important engineering foundation for the reproduction and extension of this project. AdaSeq is open-sourced under the Apache License 2.0, and its well-designed implementation has been of great help to this work.
+
+
