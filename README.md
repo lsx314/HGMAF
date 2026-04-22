@@ -35,13 +35,7 @@ The repository is organized as follows:
 sdxl-turbo/
 ├── README.md                   # This file, providing an overview of the repository
 ├── LICENSE                     # MIT License file for the project
-├── emotion_prompt.py           # Script for generating emotion-based prompts
-├── entity_interpretation_prompt.py  # Script for generating entity interpretation prompts
-├── entity_prompt.py            # Script for generating entity-related prompts
-├── generated_entity_image.py   # Script for generating images associated with extracted entities
-├── generated_sentences_image.py # Script for generating sentences and corresponding images
-├── requirements.txt            # List of Python dependencies
-└── ....           # More thing
+
 ```
 
 ---
@@ -123,7 +117,8 @@ The code is written in Python and requires the following dependencies, which can
 - `scikit-learn`
 
 ---
-
+python -W ignore -m scripts.train -c examples/HGMAF/twitter-15-HGMAF.yaml
+python -W ignore -m scripts.train -c examples/HGMAF/twitter-17-HGMAF.yaml
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
