@@ -1,11 +1,8 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
 
 from typing import Dict, List, Optional, Set
-
 from datasets.arrow_dataset import Dataset
-
 from .span_utils import bio_tags_to_spans
-
 
 def count_labels(example: Dict, labels: Set, key: str = 'label', **kwargs):
     """
@@ -18,7 +15,6 @@ def count_labels(example: Dict, labels: Set, key: str = 'label', **kwargs):
     else:
         raise RuntimeError
     return example
-
 
 def count_span_labels(example: Dict, labels: Set, key: str = 'spans', **kwargs):
     """
@@ -33,7 +29,6 @@ def count_span_labels(example: Dict, labels: Set, key: str = 'spans', **kwargs):
         else:
             raise RuntimeError
     return example
-
 
 def hf_ner_to_adaseq(
     dataset: Dataset,
@@ -58,7 +53,6 @@ def hf_ner_to_adaseq(
 
     dataset = dataset.map(to_adaseq)
     return dataset
-
 
 COUNT_LABEL_FUNCTIONS = {'count_labels': count_labels, 'count_span_labels': count_span_labels}
 DATASET_TRANSFORMS = {'hf_ner_to_adaseq': hf_ner_to_adaseq}
