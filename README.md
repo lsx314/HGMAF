@@ -134,4 +134,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgement
 
+The implementation of the first stage uses [SDXL-Turbo](https://huggingface.co/stabilityai/sdxl-turbo) for visual evidence generation. We sincerely thank the SDXL-Turbo team for releasing this efficient text-to-image generation model, which provides important support for generating sentence-level and entity-level visual evidence in this project.
+
 The implementation of the second stage is based on the open-source sequence understanding framework [AdaSeq](https://github.com/modelscope/AdaSeq). We sincerely thank the AdaSeq team for their public work on data processing, training pipelines, and model components, which provided an important engineering foundation for the reproduction and extension of this project. AdaSeq is open-sourced under the Apache License 2.0, and its well-designed implementation has been of great help to this work.
