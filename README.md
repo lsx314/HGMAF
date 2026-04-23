@@ -32,98 +32,106 @@ The paper introduces a hierarchical model that aligns and fuses multi-evidence f
 The repository is organized as follows:
 
 ```
-sdxl-turbo/
-├── README.md                   # This file, providing an overview of the repository
-├── LICENSE                     # MIT License file for the project
+HGMAF/
+├── HGMAF_Stage1/                 # Stage 1: hierarchical multi-evidence generation
+├── HGMAF_Stage2_AdaSeq/          # Stage 2: AdaSeq-based HGMAF alignment and fusion implementation
+├── LICENSE                       # MIT License file
+├── README.md                     # Project overview and usage instructions
+└── requirements.txt              # Python dependencies
 
 ```
-
----
-
-## Installation
-To set up the environment and install the necessary dependencies, follow these steps:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/lsx314/HGMAF.git
-   cd your-repo-name/sdxl-turbo
-   ```
-
-2. **Create a virtual environment** (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   ```
-
-3. **Install the dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
 ---
 
 ## Usage
-The repository contains several scripts that are used in the hierarchical generation and fusion process. Below is a brief description of each script and how to use it:
 
-### 1. Emotion Prompt Generation (`emotion_prompt.py`)
-This script generates emotion-based prompts that are used to guide the model in understanding the emotional context of the text and images.
+### Stage 1: Multi-Evidence Generation
 
-**Usage**:
+The first stage is located in:
+
 ```bash
-python emotion_prompt.py 
+cd HGMAF_Stage1
 ```
 
-### 2. Entity Interpretation Prompt Generation (`entity_interpretation_prompt.py`)
-This script generates prompts that help the model interpret entities in the context of multimodal data.
+This stage is used to generate hierarchical evidence, including textual evidence and visual evidence. The generated evidence can include emotion-related text, entity-related text, entity interpretation text, sentence-level generated images, and entity-level generated images.
 
-**Usage**:
+Before running the scripts, please modify the input and output paths according to your local dataset location.
+
+Example usage:
+
 ```bash
-python entity_interpretation_prompt.py 
-
-### 3. Entity Prompt Generation (`entity_prompt.py`)
-This script generates prompts related to entities, which are used to extract and align entities from text and images.
-
-**Usage**:
-```bash
-python entity_prompt.py 
-```
-
-### 4. Generated Entity Image (`generated_entity_image.py`)
-This script generates images associated with the extracted entities, which are then used for multimodal alignment.
-
-**Usage**:
-```bash
+python emotion_prompt.py
+python entity_prompt.py
+python entity_interpretation_prompt.py
+python generated_sentences_image.py
 python generated_entity_image.py
 ```
 
-### 5. Generated Sentences and Images (`generated_sentences_image.py`)
-This script generates sentences and corresponding images, which are used for aligning text and image data.
+The outputs of this stage can be used as auxiliary evidence for the second-stage HGMAF alignment and fusion model.
 
-**Usage**:
+### Stage 2: HGMAF Alignment and Fusion
+
+The second stage is located in:
+
 ```bash
-python generated_sentences_image.py
+cd HGMAF_Stage2_AdaSeq
 ```
 
----
+This stage implements the HGMAF Stage2 model based on the AdaSeq framework. It is used for sequence labeling tasks such as multimodal named entity recognition.
 
-## Requirements
-The code is written in Python and requires the following dependencies, which can be installed using the `requirements.txt` file:
+Example training commands:
 
-- `torch`
-- `transformers`
-- `PIL`
-- `numpy`
-- `pandas`
-- `scikit-learn`
-
----
+```bash
 python -W ignore -m scripts.train -c examples/HGMAF/twitter-15-HGMAF.yaml
 python -W ignore -m scripts.train -c examples/HGMAF/twitter-17-HGMAF.yaml
+```
+
+## Recommended Workflow
+
+```text
+Raw multimodal data
+        ↓
+HGMAF_Stage1
+        ↓
+Generate textual and visual evidence
+        ↓
+HGMAF_Stage2_AdaSeq
+        ↓
+Multi-evidence alignment and fusion
+        ↓
+Multimodal entity extraction results
+```
+
+## Requirements
+
+The code is written in Python and requires the following dependencies, which can be installed using the `requirements.txt` file:
+
+```txt
+datasets>=2.0.0
+huggingface-hub>=0.10.0
+modelscope>=1.4.0,<2.0.0
+numpy>=1.21.0,<2.0.0
+packaging>=21.0
+PyYAML>=6.0
+requests>=2.28.0
+sentencepiece>=0.1.99
+seqeval>=1.2.2
+torch>=1.11.0
+tqdm>=4.64.0
+transformers>=4.21.0
+urllib3>=1.26.0
+```
+
+Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgement
 
 The implementation of the second stage is based on the open-source sequence understanding framework [AdaSeq](https://github.com/modelscope/AdaSeq). We sincerely thank the AdaSeq team for their public work on data processing, training pipelines, and model components, which provided an important engineering foundation for the reproduction and extension of this project. AdaSeq is open-sourced under the Apache License 2.0, and its well-designed implementation has been of great help to this work.
-
-
