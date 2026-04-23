@@ -6,3 +6,16 @@ wandb==0.12.1
 torch==1.7.1
 scikit-learn==1.0
 seqeval==1.2.2
+datasets>=2.0.0
+huggingface-hub>=0.10.0
+modelscope>=1.4.0,<2.0.0
+numpy>=1.21.0,<2.0.0
+packaging>=21.0
+PyYAML>=6.0
+requests>=2.28.0
+sentencepiece>=0.1.99
+seqeval>=1.2.2
+torch>=1.11.0
+tqdm>=4.64.0
+transformers>=4.21.0
+urllib3>=1.26.0
